@@ -382,17 +382,6 @@ main {
     border-top: 2px solid var(--neon-blue);
     border-radius: 20px 20px 0 0;
     z-index: 600;
-    transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    backdrop-filter: blur(20px);
-}
-
-.cyber-card:hover {
-    transform: translateY(-20px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     border-color: var(--neon-pink);
 }
 

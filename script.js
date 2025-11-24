@@ -78,10 +78,14 @@ window.addEventListener('mousemove', (e) => {
     terminal.style.top = `${initialTop + dy}px`;
 });
 
-window.addEventListener('mouseup', () => {
-    isDragging = false;
-    terminal.style.transition = 'opacity 0.3s, transform 0.3s'; // Re-enable
+terminal.style.transition = 'opacity 0.3s, transform 0.3s'; // Re-enable
 });
+
+if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+        terminal.classList.add('closed');
+    });
+}
 
 // Open/Close Terminal
 // --- Navigation & Interaction Handler ---
