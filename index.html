@@ -37,10 +37,30 @@
             </li>
             <li class="nav-item" data-target="terminal">
                 <i class="fas fa-terminal"></i>
-                <a href="https://github.com/shivanshu407" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/shivanshu-mishra-6a0496216" target="_blank"><i
-                        class="fab fa-linkedin-in"></i></a>
-                </div>
+                <span class="nav-label">Terminal</span>
+            </li>
+            <li class="nav-item" data-target="arsenal">
+                <i class="fas fa-microchip"></i>
+                <span class="nav-label">Arsenal</span>
+            </li>
+            <li class="nav-item" data-target="execution-log">
+                <i class="fas fa-stream"></i>
+                <span class="nav-label">Log</span>
+            </li>
+            <li class="nav-item" data-target="projects-drawer">
+                <i class="fas fa-layer-group"></i>
+                <span class="nav-label">Projects</span>
+            </li>
+            <li class="nav-item" data-target="contact-modal">
+                <i class="fas fa-envelope"></i>
+                <span class="nav-label">Contact</span>
+            </li>
+        </ul>
+        <div class="social-vertical">
+            <a href="https://github.com/shivanshu407" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/shivanshu-mishra-6a0496216" target="_blank"><i
+                    class="fab fa-linkedin-in"></i></a>
+        </div>
     </nav>
 
     <!-- Main Content Area -->
@@ -59,6 +79,78 @@
             </button>
         </div>
     </main>
+
+    <!-- Section: THE_ARSENAL (Skills) -->
+    <section id="arsenal" class="cyber-section">
+        <h2 class="section-title glitch-text" data-text="THE_ARSENAL">THE_ARSENAL</h2>
+        <div class="circuit-board">
+            <div class="circuit-trace trace-1"></div>
+            <div class="circuit-trace trace-2"></div>
+
+            <div class="chip-group hardware">
+                <h3><i class="fas fa-microchip"></i> HARDWARE_MODULES</h3>
+                <div class="chips">
+                    <div class="chip" data-tech="FPGA">FPGA</div>
+                    <div class="chip" data-tech="Verilog">VERILOG</div>
+                    <div class="chip" data-tech="VHDL">VHDL</div>
+                    <div class="chip" data-tech="IoT">IoT</div>
+                </div>
+            </div>
+
+            <div class="chip-group software">
+                <h3><i class="fas fa-code"></i> SOFTWARE_CORE</h3>
+                <div class="chips">
+                    <div class="chip" data-tech="Python">PYTHON</div>
+                    <div class="chip" data-tech="React">REACT</div>
+                    <div class="chip" data-tech="NextJS">NEXT.JS</div>
+                    <div class="chip" data-tech="AI/ML">AI / ML</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: EXECUTION_LOG (Experience/Roadmap) -->
+    <section id="execution-log" class="cyber-section">
+        <h2 class="section-title glitch-text" data-text="EXECUTION_LOG">EXECUTION_LOG</h2>
+        <div class="log-container">
+            <div class="log-entry completed">
+                <span class="timestamp">[INIT]</span>
+                <div class="log-content">
+                    <h4>System Boot / Education</h4>
+                    <p>Loaded fundamental knowledge in Computer Science & Engineering.</p>
+                </div>
+            </div>
+            <div class="log-entry completed">
+                <span class="timestamp">[EXEC]</span>
+                <div class="log-content">
+                    <h4>Project: Travel Blog v2</h4>
+                    <p>Deployed scalable platform using Vercel & PostgreSQL.</p>
+                </div>
+            </div>
+            <div class="log-entry completed">
+                <span class="timestamp">[EXEC]</span>
+                <div class="log-content">
+                    <h4>Project: YT Sentiment AI</h4>
+                    <p>Processed natural language data for sentiment analysis.</p>
+                </div>
+            </div>
+            <div class="log-entry active">
+                <span class="timestamp">[RUNNING]</span>
+                <div class="log-content">
+                    <h4>Current Process: Advanced Learning</h4>
+                    <p>Optimizing Verilog designs & exploring FPGA accelerators.</p>
+                    <span class="blinking-cursor">_</span>
+                </div>
+            </div>
+            <div class="log-entry pending">
+                <span class="timestamp">[QUEUED]</span>
+                <div class="log-content">
+                    <h4>Future Task: VLSI & IoT</h4>
+                    <p>Targeting deep integration of hardware and AI systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Draggable Terminal Window (About Me) -->
     <div id="terminal-window" class="draggable-window closed">
@@ -103,35 +195,85 @@
                 <div class="card-info">
                     <h3>Travel Blog v2</h3>
                     <p>Scalable travel platform using Vercel & PostgreSQL.</p>
-                </div>
-                <!-- Project 3 -->
-                <div class="cyber-card">
-                    <div class="card-image">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <div class="card-info">
-                        <h3>FPGA Logic Design</h3>
-                        <p>Combinational & sequential circuits on Intel FPGA.</p>
-                        <div class="tags">
-                            <span>Verilog</span>
-                            <span>Intel FPGA</span>
-                            <label>FREQUENCY</label>
-                            <input type="email" placeholder="Enter Email">
-                        </div>
-                        <div class="input-group">
-                            <label>TRANSMISSION</label>
-                            <textarea placeholder="Enter Message"></textarea>
-                        </div>
-                        <button type="submit" class="cyber-btn small">SEND DATA</button>
-                        </form>
-                        <div class="direct-links">
-                            <p>OR CONNECT VIA:</p>
-                            <a href="mailto:mshivanshu407@gmail.com">mshivanshu407@gmail.com</a>
-                        </div>
+                    <div class="tags">
+                        <span>PostgreSQL</span>
+                        <span>Blob</span>
                     </div>
                 </div>
+            </div>
+            <!-- Project 2: Alzovision -->
+            <div class="cyber-card">
+                <div class="card-image">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Alzovision</h3>
+                    <p>AI-powered computer vision system for Alzheimer's detection.</p>
+                    <div class="tags">
+                        <span>AI/ML</span>
+                        <span>Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="cyber-card">
+                <div class="card-image">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="card-info">
+                    <h3>YT Sentiment AI</h3>
+                    <p>NLP-based comment classification system.</p>
+                    <div class="tags">
+                        <span>NLP</span>
+                        <span>Python</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="cyber-card">
+                <div class="card-image">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="card-info">
+                    <h3>FPGA Logic Design</h3>
+                    <p>Combinational & sequential circuits on Intel FPGA.</p>
+                    <div class="tags">
+                        <span>Verilog</span>
+                        <span>Intel FPGA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                <script src="script.js"></script>
+    <!-- Contact Modal Overlay -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content cyber-border">
+            <span class="close-modal">&times;</span>
+            <h2>ESTABLISH CONNECTION</h2>
+            <form class="cyber-form">
+                <div class="input-group">
+                    <label>IDENTITY</label>
+                    <input type="text" placeholder="Enter Name">
+                </div>
+                <div class="input-group">
+                    <label>FREQUENCY</label>
+                    <input type="email" placeholder="Enter Email">
+                </div>
+                <div class="input-group">
+                    <label>TRANSMISSION</label>
+                    <textarea placeholder="Enter Message"></textarea>
+                </div>
+                <button type="submit" class="cyber-btn small">SEND DATA</button>
+            </form>
+            <div class="direct-links">
+                <p>OR CONNECT VIA:</p>
+                <a href="mailto:mshivanshu407@gmail.com">mshivanshu407@gmail.com</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
