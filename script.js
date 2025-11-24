@@ -112,75 +112,84 @@ exploreBtn.addEventListener('click', toggleDrawer);
 // Close drawer when clicking anywhere else
 document.addEventListener('click', (e) => {
     if (drawer.classList.contains('open') &&
-        !drawer.contains(e.target) &&
-        let particles = [];
+        e.target !== navProjects &&
+        e.target !== exploreBtn) {
+        drawer.classList.remove('open');
+    }
+});
 
-    function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
+// --- Canvas Particles (Cyberpunk Grid/Nodes) ---
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+
+let width, height;
+
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+}
+
+window.addEventListener('resize', resize);
+resize();
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2;
     }
 
-    window.addEventListener('resize', resize);
-    resize();
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
 
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.size = Math.random() * 2;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > width) this.vx *= -1;
-            if (this.y < 0 || this.y > height) this.vy *= -1;
-        }
-
-        draw() {
-            ctx.fillStyle = 'rgba(0, 243, 255, 0.5)'; // Neon Blue
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
     }
 
-    function initParticles() {
-        particles = [];
-        const count = Math.floor(width * height / 20000);
-        for (let i = 0; i < count; i++) {
-            particles.push(new Particle());
-        }
+    draw() {
+        ctx.fillStyle = 'rgba(0, 243, 255, 0.5)'; // Neon Blue
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
     }
+}
 
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
+function initParticles() {
+    particles = [];
+    const count = Math.floor(width * height / 20000);
+    for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+    }
+}
 
-        particles.forEach((p, index) => {
-            p.update();
-            p.draw();
+function animate() {
+    ctx.clearRect(0, 0, width, height);
 
-            for (let j = index + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const dx = p.x - p2.x;
-                const dy = p.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
+    particles.forEach((p, index) => {
+        p.update();
+        p.draw();
 
-                if (dist < 150) {
-                    ctx.beginPath();
-                    ctx.strokeStyle = `rgba(0, 243, 255, ${0.1 - dist / 1500})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.stroke();
-                }
+        for (let j = index + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 150) {
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(0, 243, 255, ${0.1 - dist / 1500})`;
+                ctx.lineWidth = 0.5;
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
             }
-        });
-        requestAnimationFrame(animate);
-    }
+        }
+    });
+    requestAnimationFrame(animate);
+}
 
-    initParticles();
-    animate();
+initParticles();
+animate();
