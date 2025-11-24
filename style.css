@@ -16,20 +16,6 @@
     box-sizing: border-box;
     cursor: none;
     /* Custom cursor everywhere */
-}
-
-body {
-    background-color: var(--bg-color);
-    color: #fff;
-    font-family: var(--font-main);
-    overflow: hidden;
-    /* Prevent scrolling, use custom navigation */
-    height: 100vh;
-}
-
-/* --- Custom Cursor --- */
-.cursor-dot {
-    width: 6px;
     height: 6px;
     background: var(--neon-green);
     position: fixed;
