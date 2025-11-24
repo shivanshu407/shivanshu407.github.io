@@ -488,99 +488,34 @@ transition: transform 0.4s;
 .input-group label {
     display: block;
     font-family: var(--font-mono);
-    color: var(--neon-green);
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--neon-pink);
 }
 
-.input-group input,
-.input-group textarea {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #333;
-
-    20% {
-        clip: rect(30px, 9999px, 10px, 0);
-    }
-
-    40% {
-        clip: rect(70px, 9999px, 20px, 0);
-    }
-
-    60% {
-        clip: rect(20px, 9999px, 60px, 0);
-    }
-
-    80% {
-        clip: rect(50px, 9999px, 30px, 0);
-    }
-
-    100% {
-        clip: rect(10px, 9999px, 40px, 0);
-    }
+/* --- Bottom Drawer (Projects) --- */
+.bottom-drawer {
+    position: fixed;
+    bottom: -80%;
+    /* Hidden initially */
+    left: 80px;
+    /* Offset for sidebar */
+    width: calc(100% - 80px);
+    height: 80vh;
+    background: rgba(15, 15, 20, 0.95);
+    border-top: 2px solid var(--neon-blue);
+    border-radius: 20px 20px 0 0;
+    z-index: 600;
+    transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(20px);
 }
 
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    .window-body {
-        padding: 1.5rem;
-        font-family: var(--font-term);
-        font-size: 1.2rem;
-        color: #ddd;
-        overflow-y: auto;
-        flex-grow: 1;
-    }
-
-    .command {
-        color: var(--neon-green);
-        margin-bottom: 0.5rem;
-    }
-
-    .output {
-        margin-bottom: 1.5rem;
-        line-height: 1.4;
-        color: #ccc;
-    }
-
-    .highlight {
-        color: var(--neon-blue);
-    }
-
-    .skill-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        color: var(--neon-pink);
-    }
-
-    /* --- Bottom Drawer (Projects) --- */
-    .bottom-drawer {
-        position: fixed;
-        bottom: -80%;
-        /* Hidden initially */
-        left: 80px;
-        /* Offset for sidebar */
-        width: calc(100% - 80px);
-        height: 80vh;
-        background: rgba(15, 15, 20, 0.95);
-        border-top: 2px solid var(--neon-blue);
-        border-radius: 20px 20px 0 0;
-        z-index: 600;
-        transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        backdrop-filter: blur(20px);
-    }
-
-    transform-origin: left;
-    transition: transform 0.4s;
+transform-origin: left;
+transition: transform 0.4s;
 }
 
 .cyber-card:hover {
