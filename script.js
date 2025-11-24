@@ -84,35 +84,71 @@ window.addEventListener('mouseup', () => {
 });
 
 // Open/Close Terminal
-navTerminal.addEventListener('click', () => {
-    terminal.classList.remove('closed');
-    terminal.style.left = '30%'; // Reset position
-    terminal.style.top = '20%';
+// --- Navigation & Interaction Handler ---
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+        // Remove active class from all nav items
+        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+        item.classList.add('active');
+
+        const targetId = item.getAttribute('data-target');
+
+        if (targetId === 'terminal') {
+            const terminal = document.getElementById('terminal-window');
+            terminal.classList.remove('closed');
+            terminal.style.left = '30%';
+            terminal.style.top = '20%';
+        } else if (targetId === 'projects-drawer') {
+            const drawer = document.getElementById('projects-drawer');
+            drawer.classList.toggle('open');
+        } else if (targetId === 'contact-modal') {
+            document.getElementById('contact-modal').classList.add('active');
+        } else {
+            // Smooth scroll to section
+            const section = document.getElementById(targetId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
 });
 
-closeBtn.addEventListener('click', () => {
-    terminal.classList.add('closed');
-});
+// --- Contact Modal ---
+const contactModal = document.getElementById('contact-modal');
+const closeModal = document.querySelector('.close-modal');
+
+if (closeModal) {
+    closeModal.addEventListener('click', () => {
+        contactModal.classList.remove('active');
+    });
+}
+
+if (contactModal) {
+    contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+            contactModal.classList.remove('active');
+        }
+    });
+}
 
 // --- Project Drawer (Pull Up) ---
 const drawer = document.getElementById('projects-drawer');
-const navProjects = document.querySelector('[data-target="projects-drawer"]');
 const drawerHandle = document.querySelector('.drawer-handle');
 const exploreBtn = document.getElementById('explore-btn');
 
 function toggleDrawer(e) {
-    e.stopPropagation(); // Prevent immediate closing
+    e.stopPropagation();
     drawer.classList.toggle('open');
 }
 
-navProjects.addEventListener('click', toggleDrawer);
-drawerHandle.addEventListener('click', toggleDrawer);
-exploreBtn.addEventListener('click', toggleDrawer);
+if (drawerHandle) drawerHandle.addEventListener('click', toggleDrawer);
+if (exploreBtn) exploreBtn.addEventListener('click', toggleDrawer);
 
-// Close drawer when clicking anywhere else
+// Close drawer when clicking outside
 document.addEventListener('click', (e) => {
     if (drawer.classList.contains('open') &&
-        e.target !== navProjects &&
+        !drawer.contains(e.target) &&
+        !e.target.closest('.nav-item[data-target="projects-drawer"]') &&
         e.target !== exploreBtn) {
         drawer.classList.remove('open');
     }
