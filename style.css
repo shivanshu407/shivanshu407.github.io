@@ -365,33 +365,6 @@ main {
 .skill-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    color: var(--neon-pink);
-}
-
-/* --- Bottom Drawer (Projects) --- */
-.bottom-drawer {
-    position: fixed;
-    bottom: -80%;
-    /* Hidden initially */
-    left: 80px;
-    /* Offset for sidebar */
-    width: calc(100% - 80px);
-    height: 80vh;
-    background: rgba(15, 15, 20, 0.95);
-    border-top: 2px solid var(--neon-blue);
-    border-radius: 20px 20px 0 0;
-    z-index: 600;
-    border-color: var(--neon-pink);
-}
-
-.cyber-card:hover::before {
-    transform: scaleX(1);
-}
-
-.card-image {
-    font-size: 4rem;
-    color: #555;
     margin-bottom: 2rem;
     transition: color 0.4s;
 }
