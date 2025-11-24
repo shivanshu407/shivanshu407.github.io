@@ -557,36 +557,24 @@ main {
 
 .input-group input:focus,
 .input-group textarea:focus {
-    border-color: var(--neon-green);
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+    clip: rect(60px, 9999px, 70px, 0);
 }
 
-/* --- Animations --- */
-@keyframes glitch-anim {
-    0% {
-        clip: rect(20px, 9999px, 15px, 0);
-    }
+40% {
+    clip: rect(10px, 9999px, 50px, 0);
+}
 
-    20% {
-        clip: rect(60px, 9999px, 70px, 0);
-    }
+60% {
+    clip: rect(80px, 9999px, 10px, 0);
+}
 
-    40% {
-        clip: rect(10px, 9999px, 50px, 0);
-    }
+80% {
+    clip: rect(30px, 9999px, 40px, 0);
+}
 
-    60% {
-        clip: rect(80px, 9999px, 10px, 0);
-    }
-
-    80% {
-        clip: rect(30px, 9999px, 40px, 0);
-    }
-
-    100% {
-        clip: rect(50px, 9999px, 20px, 0);
-    }
+100% {
+    clip: rect(50px, 9999px, 20px, 0);
+}
 }
 
 @keyframes glitch-anim2 {

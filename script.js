@@ -100,7 +100,8 @@ const navProjects = document.querySelector('[data-target="projects-drawer"]');
 const drawerHandle = document.querySelector('.drawer-handle');
 const exploreBtn = document.getElementById('explore-btn');
 
-function toggleDrawer() {
+function toggleDrawer(e) {
+    e.stopPropagation(); // Prevent immediate closing
     drawer.classList.toggle('open');
 }
 
@@ -108,27 +109,46 @@ navProjects.addEventListener('click', toggleDrawer);
 drawerHandle.addEventListener('click', toggleDrawer);
 exploreBtn.addEventListener('click', toggleDrawer);
 
-// Close drawer when clicking outside (on hero)
-document.querySelector('.hero-container').addEventListener('click', () => {
-    drawer.classList.remove('open');
+// Close drawer when clicking anywhere else
+document.addEventListener('click', (e) => {
+    if (drawer.classList.contains('open') &&
+        !drawer.contains(e.target) &&
+        e.target !== navProjects &&
+        e.target !== exploreBtn) {
+        drawer.classList.remove('open');
+    }
 });
 
-// --- Contact Modal ---
-const modal = document.getElementById('contact-modal');
+// --- Contact & Resume Modals ---
+const contactModal = document.getElementById('contact-modal');
+const resumeModal = document.getElementById('resume-modal');
 const navContact = document.querySelector('[data-target="contact-modal"]');
-const closeModal = document.querySelector('.close-modal');
+const navResume = document.querySelector('[data-target="resume-modal"]');
+const closeContact = document.querySelector('.close-modal:not(.close-resume)');
+const closeResume = document.querySelector('.close-resume');
 
-navContact.addEventListener('click', () => {
+function openModal(modal) {
     modal.classList.add('active');
-});
+}
 
-closeModal.addEventListener('click', () => {
+function closeModalFunc(modal) {
     modal.classList.remove('active');
-});
+}
 
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.remove('active');
+navContact.addEventListener('click', () => openModal(contactModal));
+if (navResume) navResume.addEventListener('click', () => openModal(resumeModal));
+
+if (closeContact) closeContact.addEventListener('click', () => closeModalFunc(contactModal));
+if (closeResume) closeResume.addEventListener('click', () => closeModalFunc(resumeModal));
+
+// Close on outside click
+[contactModal, resumeModal].forEach(modal => {
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModalFunc(modal);
+            }
+        });
     }
 });
 
