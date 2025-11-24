@@ -78,7 +78,9 @@ window.addEventListener('mousemove', (e) => {
     terminal.style.top = `${initialTop + dy}px`;
 });
 
-terminal.style.transition = 'opacity 0.3s, transform 0.3s'; // Re-enable
+window.addEventListener('mouseup', () => {
+    isDragging = false;
+    terminal.style.transition = 'opacity 0.3s, transform 0.3s'; // Re-enable
 });
 
 if (closeBtn) {
