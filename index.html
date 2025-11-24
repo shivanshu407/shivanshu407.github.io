@@ -1,171 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivanshu Mishra | Hardware & Software Developer</title>
-    <meta name="description" content="Portfolio of Shivanshu Mishra - Software Developer, Hardware Enthusiast, and FPGA Engineer.">
+    <title>Shivanshu Mishra | Cyber-Portfolio</title>
+    <meta name="description" content="Shivanshu Mishra's Interactive Cyber-Portfolio">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Placeholder for FontAwesome -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&family=VT323&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+    <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
+    <!-- Background Elements -->
     <canvas id="bg-canvas"></canvas>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
 
-    <nav class="navbar">
-        <div class="logo">SM<span class="dot">.</span></div>
-        <ul class="nav-links">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
+    <!-- Groovy Sidebar -->
+    <nav class="sidebar">
+        <div class="logo-box">
+            <span class="logo-text">SM<span class="blink">_</span></span>
+        </div>
+        <ul class="nav-items">
+            <li class="nav-item" data-target="home">
+                <i class="fas fa-home"></i>
+                <span class="nav-label">Home</span>
+            </li>
+            <li class="nav-item" data-target="terminal">
+                <i class="fas fa-terminal"></i>
+                <span class="nav-label">Terminal</span>
+            </li>
+            <li class="nav-item" data-target="projects-drawer">
+                <i class="fas fa-layer-group"></i>
+                <span class="nav-label">Projects</span>
+            </li>
+            <li class="nav-item" data-target="contact-modal">
+                <i class="fas fa-envelope"></i>
+                <span class="nav-label">Contact</span>
+            </li>
         </ul>
-        <div class="hamburger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+        <div class="social-vertical">
+            <a href="https://github.com/shivanshu407" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/shivanshu-mishra-6a0496216" target="_blank"><i
+                    class="fab fa-linkedin-in"></i></a>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <p class="greeting">Hello, I'm</p>
-            <h1 class="name glitched" data-text="Shivanshu Mishra">Shivanshu Mishra</h1>
-            <h2 class="role">Software Developer <span class="accent">&</span> Hardware Enthusiast</h2>
-            <p class="tagline">Bridging the gap between <span class="highlight">Digital Logic</span> and <span class="highlight">Machine Learning</span>.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn primary">View Work</a>
-                <a href="#contact" class="btn secondary">Contact Me</a>
+    <!-- Main Content Area -->
+    <main id="home" class="active-section">
+        <div class="hero-container">
+            <h1 class="glitch-name" data-text="SHIVANSHU MISHRA">SHIVANSHU MISHRA</h1>
+            <div class="role-container">
+                <span class="bracket">[</span>
+                <span class="typing-text"></span>
+                <span class="cursor">|</span>
+                <span class="bracket">]</span>
+            </div>
+            <button class="cyber-btn" id="explore-btn">
+                INITIALIZE SYSTEM
+                <span class="btn-glitch"></span>
+            </button>
+        </div>
+    </main>
+
+    <!-- Draggable Terminal Window (About Me) -->
+    <div id="terminal-window" class="draggable-window closed">
+        <div class="window-header">
+            <div class="window-title"><i class="fas fa-code"></i> user@shivanshu:~/about</div>
+            <div class="window-controls">
+                <span class="control minimize">_</span>
+                <span class="control maximize">□</span>
+                <span class="control close">×</span>
             </div>
         </div>
-        <div class="hero-visual">
-            <!-- 3D or abstract visual handled by JS/CSS -->
-            <div class="circuit-circle"></div>
-        </div>
-    </section>
-
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>I'm a passionate developer with a unique blend of skills in <strong>software engineering</strong> and <strong>hardware design</strong>. My journey involves deep diving into Verilog, VLSI, and IoT, while also building robust software solutions with Python and React.</p>
-                    <p>I thrive on solving complex problems, whether it's optimizing a neural network or designing a sequential circuit on an Intel FPGA.</p>
-                    
-                    <div class="learning-box">
-                        <h3>🌱 Currently Learning</h3>
-                        <p>Advanced Verilog Design & Verification, AI/ML, FPGA Programming</p>
-                    </div>
+        <div class="window-body">
+            <div class="terminal-content">
+                <p class="command">> cat about_me.txt</p>
+                <p class="output">
+                    Hello! I'm a software developer & hardware enthusiast.<br>
+                    Passionate about <span class="highlight">Verilog</span>, <span class="highlight">FPGA</span>, and
+                    <span class="highlight">AI/ML</span>.<br>
+                    Currently bridging the gap between hardware and software.
+                </p>
+                <p class="command">> list skills</p>
+                <div class="skill-grid">
+                    <span>[Python]</span> <span>[Verilog]</span> <span>[React]</span>
+                    <span>[Next.js]</span> <span>[FPGA]</span> <span>[VHDL]</span>
+                    <span>[Jupyter]</span> <span>[Git]</span>
                 </div>
-                <div class="skills-wrapper">
-                    <h3>Technologies & Tools</h3>
-                    <div class="skills-cloud">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Verilog</span>
-                        <span class="skill-tag">FPGA</span>
-                        <span class="skill-tag">VHDL</span>
-                        <span class="skill-tag">Jupyter</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Next.js</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">VS Code</span>
-                    </div>
-                </div>
+                <p class="command">> <span class="blink">_</span></p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-tilt>
-                    <div class="card-content">
-                        <div class="project-icon"><i class="fas fa-globe-asia"></i></div>
-                        <h3>Travel Blog v2</h3>
-                        <p>A modern travel blog application built for performance and scalability.</p>
-                        <div class="tech-stack">
-                            <span>Vercel</span><span>PostgreSQL</span><span>Blob Storage</span>
-                        </div>
-                    </div>
+    <!-- Pull-up Project Drawer -->
+    <div id="projects-drawer" class="bottom-drawer">
+        <div class="drawer-handle"></div>
+        <h2 class="drawer-title">PROJECT_ARCHIVES</h2>
+        <div class="projects-carousel">
+            <!-- Project 1 -->
+            <div class="cyber-card">
+                <div class="card-image">
+                    <i class="fas fa-globe-asia"></i>
                 </div>
-
-                <div class="project-card" data-tilt>
-                    <div class="card-content">
-                        <div class="project-icon"><i class="fab fa-youtube"></i></div>
-                        <h3>YouTube Comment Classification</h3>
-                        <p>AI-powered sentiment analysis tool for YouTube comments using NLP techniques.</p>
-                        <div class="tech-stack">
-                            <span>Python</span><span>NLP</span><span>AI/ML</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tilt>
-                    <div class="card-content">
-                        <div class="project-icon"><i class="fas fa-microchip"></i></div>
-                        <h3>Digital Logic Circuits</h3>
-                        <p>Implementation of combinational and sequential circuit designs on Intel FPGA.</p>
-                        <div class="tech-stack">
-                            <span>Verilog</span><span>Intel FPGA</span><span>Digital Logic</span>
-                        </div>
+                <div class="card-info">
+                    <h3>Travel Blog v2</h3>
+                    <p>Scalable travel platform using Vercel & PostgreSQL.</p>
+                    <div class="tags">
+                        <span>PostgreSQL</span>
+                        <span>Blob</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="goals" class="section">
-        <div class="container">
-            <h2 class="section-title">My Goals</h2>
-            <div class="goals-grid">
-                <div class="goal-item">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Improve Verilog design and verification skills</p>
+            <!-- Project 2 -->
+            <div class="cyber-card">
+                <div class="card-image">
+                    <i class="fab fa-youtube"></i>
                 </div>
-                <div class="goal-item">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Contribute to AI and ML open-source projects</p>
+                <div class="card-info">
+                    <h3>YT Sentiment AI</h3>
+                    <p>NLP-based comment classification system.</p>
+                    <div class="tags">
+                        <span>NLP</span>
+                        <span>Python</span>
+                    </div>
                 </div>
-                <div class="goal-item">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Work on IoT, VLSI design, and emerging tech</p>
+            </div>
+            <!-- Project 3 -->
+            <div class="cyber-card">
+                <div class="card-image">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="card-info">
+                    <h3>FPGA Logic Design</h3>
+                    <p>Combinational & sequential circuits on Intel FPGA.</p>
+                    <div class="tags">
+                        <span>Verilog</span>
+                        <span>Intel FPGA</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-wrapper">
-                <p>Always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
-                <div class="social-links">
-                    <a href="mailto:mshivanshu407@gmail.com" class="social-btn email">
-                        <i class="fas fa-envelope"></i> Email Me
-                    </a>
-                    <a href="https://linkedin.com/in/shivanshu-mishra-6a0496216" target="_blank" class="social-btn linkedin">
-                        <i class="fab fa-linkedin-in"></i> LinkedIn
-                    </a>
-                    <a href="https://github.com/shivanshu407" target="_blank" class="social-btn github">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
+    <!-- Contact Modal Overlay -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content cyber-border">
+            <span class="close-modal">&times;</span>
+            <h2>ESTABLISH CONNECTION</h2>
+            <form class="cyber-form">
+                <div class="input-group">
+                    <label>IDENTITY</label>
+                    <input type="text" placeholder="Enter Name">
                 </div>
+                <div class="input-group">
+                    <label>FREQUENCY</label>
+                    <input type="email" placeholder="Enter Email">
+                </div>
+                <div class="input-group">
+                    <label>TRANSMISSION</label>
+                    <textarea placeholder="Enter Message"></textarea>
+                </div>
+                <button type="submit" class="cyber-btn small">SEND DATA</button>
+            </form>
+            <div class="direct-links">
+                <p>OR CONNECT VIA:</p>
+                <a href="mailto:mshivanshu407@gmail.com">mshivanshu407@gmail.com</a>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Shivanshu Mishra. Built with <i class="fas fa-code"></i> & <i class="fas fa-heart"></i>.</p>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>

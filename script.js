@@ -1,4 +1,4 @@
-// Custom Cursor
+// --- Custom Cursor ---
 const cursorDot = document.querySelector('.cursor-dot');
 const cursorOutline = document.querySelector('.cursor-outline');
 
@@ -15,7 +15,124 @@ window.addEventListener('mousemove', (e) => {
     }, { duration: 500, fill: "forwards" });
 });
 
-// Canvas Animation (Fluid Graphics / Circuit Nodes)
+// --- Typing Effect ---
+const typingText = document.querySelector('.typing-text');
+const words = ["Software Developer", "Hardware Enthusiast", "FPGA Engineer", "AI Researcher"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function type() {
+    const currentWord = words[wordIndex];
+
+    if (isDeleting) {
+        typingText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typingText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, 2000); // Pause at end
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500); // Pause before new word
+    } else {
+        setTimeout(type, isDeleting ? 50 : 100);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', type);
+
+// --- Draggable Terminal Window ---
+const terminal = document.getElementById('terminal-window');
+const header = terminal.querySelector('.window-header');
+const closeBtn = terminal.querySelector('.control.close');
+const navTerminal = document.querySelector('[data-target="terminal"]');
+
+let isDragging = false;
+let startX, startY, initialLeft, initialTop;
+
+header.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+
+    const rect = terminal.getBoundingClientRect();
+    initialLeft = rect.left;
+    initialTop = rect.top;
+
+    terminal.style.transition = 'none'; // Disable transition for smooth drag
+});
+
+window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    terminal.style.left = `${initialLeft + dx}px`;
+    terminal.style.top = `${initialTop + dy}px`;
+});
+
+window.addEventListener('mouseup', () => {
+    isDragging = false;
+    terminal.style.transition = 'opacity 0.3s, transform 0.3s'; // Re-enable
+});
+
+// Open/Close Terminal
+navTerminal.addEventListener('click', () => {
+    terminal.classList.remove('closed');
+    terminal.style.left = '30%'; // Reset position
+    terminal.style.top = '20%';
+});
+
+closeBtn.addEventListener('click', () => {
+    terminal.classList.add('closed');
+});
+
+// --- Project Drawer (Pull Up) ---
+const drawer = document.getElementById('projects-drawer');
+const navProjects = document.querySelector('[data-target="projects-drawer"]');
+const drawerHandle = document.querySelector('.drawer-handle');
+const exploreBtn = document.getElementById('explore-btn');
+
+function toggleDrawer() {
+    drawer.classList.toggle('open');
+}
+
+navProjects.addEventListener('click', toggleDrawer);
+drawerHandle.addEventListener('click', toggleDrawer);
+exploreBtn.addEventListener('click', toggleDrawer);
+
+// Close drawer when clicking outside (on hero)
+document.querySelector('.hero-container').addEventListener('click', () => {
+    drawer.classList.remove('open');
+});
+
+// --- Contact Modal ---
+const modal = document.getElementById('contact-modal');
+const navContact = document.querySelector('[data-target="contact-modal"]');
+const closeModal = document.querySelector('.close-modal');
+
+navContact.addEventListener('click', () => {
+    modal.classList.add('active');
+});
+
+closeModal.addEventListener('click', () => {
+    modal.classList.remove('active');
+});
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('active');
+    }
+});
+
+// --- Canvas Particles (Cyberpunk Grid/Nodes) ---
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -36,7 +153,7 @@ class Particle {
         this.y = Math.random() * height;
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2 + 1;
+        this.size = Math.random() * 2;
     }
 
     update() {
@@ -48,17 +165,17 @@ class Particle {
     }
 
     draw() {
+        ctx.fillStyle = 'rgba(0, 243, 255, 0.5)'; // Neon Blue
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 255, 136, 0.5)';
         ctx.fill();
     }
 }
 
 function initParticles() {
     particles = [];
-    const particleCount = Math.floor(width * height / 15000); // Density
-    for (let i = 0; i < particleCount; i++) {
+    const count = Math.floor(width * height / 20000);
+    for (let i = 0; i < count; i++) {
         particles.push(new Particle());
     }
 }
@@ -70,63 +187,24 @@ function animate() {
         p.update();
         p.draw();
 
-        // Connect particles
         for (let j = index + 1; j < particles.length; j++) {
             const p2 = particles[j];
             const dx = p.x - p2.x;
             const dy = p.y - p2.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+            const dist = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 100) {
+            if (dist < 150) {
                 ctx.beginPath();
-                ctx.strokeStyle = `rgba(0, 255, 136, ${0.1 - distance / 1000})`;
-                ctx.lineWidth = 1;
+                ctx.strokeStyle = `rgba(0, 243, 255, ${0.1 - dist / 1500})`;
+                ctx.lineWidth = 0.5;
                 ctx.moveTo(p.x, p.y);
                 ctx.lineTo(p2.x, p2.y);
                 ctx.stroke();
             }
         }
     });
-
     requestAnimationFrame(animate);
 }
 
 initParticles();
 animate();
-
-// Glitch Text Effect (Simple)
-const glitchText = document.querySelector('.glitched');
-if (glitchText) {
-    setInterval(() => {
-        glitchText.style.textShadow = `
-            ${Math.random() * 4 - 2}px ${Math.random() * 4 - 2}px 0 #00ff88,
-            ${Math.random() * 4 - 2}px ${Math.random() * 4 - 2}px 0 #ff0055
-        `;
-        setTimeout(() => {
-            glitchText.style.textShadow = 'none';
-        }, 100);
-    }, 3000);
-}
-
-// Tilt Effect for Cards
-const cards = document.querySelectorAll('.project-card');
-
-cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
-        const rotateY = ((x - centerX) / centerX) * 5;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-    });
-});
