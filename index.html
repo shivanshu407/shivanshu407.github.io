@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivanshu Mishra | Hardware & Software Developer</title>
+    <meta name="description" content="Portfolio of Shivanshu Mishra - Software Developer, Hardware Enthusiast, and FPGA Engineer.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Placeholder for FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="logo">SM<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="greeting">Hello, I'm</p>
+            <h1 class="name glitched" data-text="Shivanshu Mishra">Shivanshu Mishra</h1>
+            <h2 class="role">Software Developer <span class="accent">&</span> Hardware Enthusiast</h2>
+            <p class="tagline">Bridging the gap between <span class="highlight">Digital Logic</span> and <span class="highlight">Machine Learning</span>.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn primary">View Work</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <!-- 3D or abstract visual handled by JS/CSS -->
+            <div class="circuit-circle"></div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a passionate developer with a unique blend of skills in <strong>software engineering</strong> and <strong>hardware design</strong>. My journey involves deep diving into Verilog, VLSI, and IoT, while also building robust software solutions with Python and React.</p>
+                    <p>I thrive on solving complex problems, whether it's optimizing a neural network or designing a sequential circuit on an Intel FPGA.</p>
+                    
+                    <div class="learning-box">
+                        <h3>🌱 Currently Learning</h3>
+                        <p>Advanced Verilog Design & Verification, AI/ML, FPGA Programming</p>
+                    </div>
+                </div>
+                <div class="skills-wrapper">
+                    <h3>Technologies & Tools</h3>
+                    <div class="skills-cloud">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Verilog</span>
+                        <span class="skill-tag">FPGA</span>
+                        <span class="skill-tag">VHDL</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-tilt>
+                    <div class="card-content">
+                        <div class="project-icon"><i class="fas fa-globe-asia"></i></div>
+                        <h3>Travel Blog v2</h3>
+                        <p>A modern travel blog application built for performance and scalability.</p>
+                        <div class="tech-stack">
+                            <span>Vercel</span><span>PostgreSQL</span><span>Blob Storage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-tilt>
+                    <div class="card-content">
+                        <div class="project-icon"><i class="fab fa-youtube"></i></div>
+                        <h3>YouTube Comment Classification</h3>
+                        <p>AI-powered sentiment analysis tool for YouTube comments using NLP techniques.</p>
+                        <div class="tech-stack">
+                            <span>Python</span><span>NLP</span><span>AI/ML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-tilt>
+                    <div class="card-content">
+                        <div class="project-icon"><i class="fas fa-microchip"></i></div>
+                        <h3>Digital Logic Circuits</h3>
+                        <p>Implementation of combinational and sequential circuit designs on Intel FPGA.</p>
+                        <div class="tech-stack">
+                            <span>Verilog</span><span>Intel FPGA</span><span>Digital Logic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="goals" class="section">
+        <div class="container">
+            <h2 class="section-title">My Goals</h2>
+            <div class="goals-grid">
+                <div class="goal-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Improve Verilog design and verification skills</p>
+                </div>
+                <div class="goal-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Contribute to AI and ML open-source projects</p>
+                </div>
+                <div class="goal-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Work on IoT, VLSI design, and emerging tech</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-wrapper">
+                <p>Always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+                <div class="social-links">
+                    <a href="mailto:mshivanshu407@gmail.com" class="social-btn email">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://linkedin.com/in/shivanshu-mishra-6a0496216" target="_blank" class="social-btn linkedin">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/shivanshu407" target="_blank" class="social-btn github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Shivanshu Mishra. Built with <i class="fas fa-code"></i> & <i class="fas fa-heart"></i>.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
