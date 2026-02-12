@@ -1,20 +1,3 @@
-// --- Custom Cursor ---
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
-
-window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
-});
-
 // --- Typing Effect ---
 const typingText = document.querySelector('.typing-text');
 const words = ["Software Developer", "Hardware Enthusiast", "FPGA Engineer", "AI Researcher"];
@@ -47,117 +30,26 @@ function type() {
 
 document.addEventListener('DOMContentLoaded', type);
 
-// --- Draggable Terminal Window ---
-const terminal = document.getElementById('terminal-window');
-const header = terminal.querySelector('.window-header');
-const closeBtn = terminal.querySelector('.control.close');
-const navTerminal = document.querySelector('[data-target="terminal"]');
+// --- Mobile Navigation ---
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
 
-let isDragging = false;
-let startX, startY, initialLeft, initialTop;
-
-header.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
-
-    const rect = terminal.getBoundingClientRect();
-    initialLeft = rect.left;
-    initialTop = rect.top;
-
-    terminal.style.transition = 'none'; // Disable transition for smooth drag
-});
-
-window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
-
-    terminal.style.left = `${initialLeft + dx}px`;
-    terminal.style.top = `${initialTop + dy}px`;
-});
-
-window.addEventListener('mouseup', () => {
-    isDragging = false;
-    terminal.style.transition = 'opacity 0.3s, transform 0.3s'; // Re-enable
-});
-
-if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-        terminal.classList.add('closed');
-    });
+function toggleMenu() {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
 }
 
-// Open/Close Terminal
-// --- Navigation & Interaction Handler ---
-document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-        // Remove active class from all nav items
-        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
-        item.classList.add('active');
-
-        const targetId = item.getAttribute('data-target');
-
-        if (targetId === 'terminal') {
-            const terminal = document.getElementById('terminal-window');
-            terminal.classList.remove('closed');
-            terminal.style.left = '30%';
-            terminal.style.top = '20%';
-        } else if (targetId === 'projects-drawer') {
-            const drawer = document.getElementById('projects-drawer');
-            drawer.classList.toggle('open');
-        } else if (targetId === 'contact-modal') {
-            document.getElementById('contact-modal').classList.add('active');
-        } else {
-            // Smooth scroll to section
-            const section = document.getElementById(targetId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    });
-});
-
-// --- Contact Modal ---
-const contactModal = document.getElementById('contact-modal');
-const closeModal = document.querySelector('.close-modal');
-
-if (closeModal) {
-    closeModal.addEventListener('click', () => {
-        contactModal.classList.remove('active');
-    });
+if (hamburger) {
+    hamburger.addEventListener('click', toggleMenu);
 }
 
-if (contactModal) {
-    contactModal.addEventListener('click', (e) => {
-        if (e.target === contactModal) {
-            contactModal.classList.remove('active');
-        }
+// Close menu when clicking on a nav link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
     });
-}
-
-// --- Project Drawer (Pull Up) ---
-const drawer = document.getElementById('projects-drawer');
-const drawerHandle = document.querySelector('.drawer-handle');
-const exploreBtn = document.getElementById('explore-btn');
-
-function toggleDrawer(e) {
-    e.stopPropagation();
-    drawer.classList.toggle('open');
-}
-
-if (drawerHandle) drawerHandle.addEventListener('click', toggleDrawer);
-if (exploreBtn) exploreBtn.addEventListener('click', toggleDrawer);
-
-// Close drawer when clicking outside
-document.addEventListener('click', (e) => {
-    if (drawer.classList.contains('open') &&
-        !drawer.contains(e.target) &&
-        !e.target.closest('.nav-item[data-target="projects-drawer"]') &&
-        e.target !== exploreBtn) {
-        drawer.classList.remove('open');
-    }
 });
 
 // --- Canvas Particles (Cyberpunk Grid/Nodes) ---
