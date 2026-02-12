@@ -24,16 +24,15 @@ shivanshu407.github.io/
 ├── style.css           # Clean, minimal CSS styles
 ├── script.js           # Minimal JavaScript for navigation & animations
 ├── images/             # Directory for images
-│   ├── hero-bg.svg     # Placeholder for hero background
-│   ├── profile.svg     # Placeholder for profile photo
-│   └── .gitkeep        # Keep directory in git
+│   ├── hero-bg.jpg     # Hero background image
+│   └── profile.jpg     # Profile photo
 ├── CNAME               # Custom domain configuration
 └── README.md           # This file
 ```
 
 ## 🖼️ Image Setup Instructions
 
-The site currently uses SVG placeholders. To add your actual images:
+The site uses JPG images for the profile photo and hero background:
 
 ### 1. Hero Background Image
 - **File**: `images/hero-bg.jpg`
@@ -48,14 +47,12 @@ The site currently uses SVG placeholders. To add your actual images:
 - **Format**: JPG or PNG
 - **Note**: Will be displayed as a circle using CSS `border-radius: 50%`
 
-### Steps to Add Images:
+### Steps to Update Images:
 
 1. Prepare your images according to the specifications above
 2. Name them exactly as specified (`hero-bg.jpg` and `profile.jpg`)
 3. Upload them to the `images/` directory
-4. Update the file references:
-   - In `style.css` (line 159): Replace `images/hero-bg.svg` with `images/hero-bg.jpg`
-   - In `index.html` (lines 10, 11, 67): Replace `images/profile.svg` with `images/profile.jpg`
+4. The site is already configured to use these JPG files
 5. Commit and push the changes
 
 ## 🚀 Deployment
