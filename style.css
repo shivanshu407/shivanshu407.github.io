@@ -258,10 +258,13 @@ body {
 }
 
 .details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    /* Consistent spacing between items */
     margin-bottom: 30px;
+    align-items: center;
+    /* Ensure vertical alignment */
 }
 
 .detail-item {
