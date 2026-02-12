@@ -1,50 +1,20 @@
-// --- Typing Effect ---
-const typingText = document.querySelector('.typing-text');
-const words = ["Software Developer", "Hardware Enthusiast", "FPGA Engineer", "AI Researcher"];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+// =====================================
+// MINIMAL PORTFOLIO - CLEAN JAVASCRIPT
+// =====================================
 
-function type() {
-    const currentWord = words[wordIndex];
-
-    if (isDeleting) {
-        typingText.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typingText.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-    }
-
-    if (!isDeleting && charIndex === currentWord.length) {
-        isDeleting = true;
-        setTimeout(type, 2000); // Pause at end
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        setTimeout(type, 500); // Pause before new word
-    } else {
-        setTimeout(type, isDeleting ? 50 : 100);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', type);
-
-// --- Mobile Navigation ---
+// Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-function toggleMenu() {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-}
-
 if (hamburger) {
-    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
 }
 
-// Close menu when clicking on a nav link
+// Close mobile menu when clicking on a link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -52,78 +22,87 @@ navLinks.forEach(link => {
     });
 });
 
-// --- Canvas Particles (Cyberpunk Grid/Nodes) ---
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
-
-let width, height;
-
-function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-}
-
-window.addEventListener('resize', resize);
-resize();
-
-class Particle {
-    constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2;
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
     }
+});
 
-    update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > width) this.vx *= -1;
-        if (this.y < 0 || this.y > height) this.vy *= -1;
-    }
-
-    draw() {
-        ctx.fillStyle = 'rgba(0, 243, 255, 0.5)'; // Neon Blue
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
-function initParticles() {
-    particles = [];
-    const count = Math.floor(width * height / 20000);
-    for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-    }
-}
-
-function animate() {
-    ctx.clearRect(0, 0, width, height);
-
-    particles.forEach((p, index) => {
-        p.update();
-        p.draw();
-
-        for (let j = index + 1; j < particles.length; j++) {
-            const p2 = particles[j];
-            const dx = p.x - p2.x;
-            const dy = p.y - p2.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 150) {
-                ctx.beginPath();
-                ctx.strokeStyle = `rgba(0, 243, 255, ${0.1 - dist / 1500})`;
-                ctx.lineWidth = 0.5;
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(p2.x, p2.y);
-                ctx.stroke();
-            }
+// Smooth Scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offsetTop = target.offsetTop - 70; // Account for fixed navbar
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
         }
     });
-    requestAnimationFrame(animate);
-}
+});
 
-initParticles();
-animate();
+// Fade-in animation on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Observe all sections for fade-in effect
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.add('fade-in');
+        observer.observe(section);
+    });
+});
+
+// Change navbar background on scroll
+let lastScroll = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.5)';
+    } else {
+        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+        navbar.style.boxShadow = 'none';
+    }
+    
+    lastScroll = currentScroll;
+});
+
+// Active navigation link on scroll
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('.section, .hero');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 150)) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
