@@ -54,8 +54,8 @@ The site currently uses SVG placeholders. To add your actual images:
 2. Name them exactly as specified (`hero-bg.jpg` and `profile.jpg`)
 3. Upload them to the `images/` directory
 4. Update the file references:
-   - In `style.css` (line ~137): Replace `images/hero-bg.svg` with `images/hero-bg.jpg`
-   - In `index.html` (lines ~10, ~11, ~67): Replace `images/profile.svg` with `images/profile.jpg`
+   - In `style.css` (line 159): Replace `images/hero-bg.svg` with `images/hero-bg.jpg`
+   - In `index.html` (lines 10, 11, 67): Replace `images/profile.svg` with `images/profile.jpg`
 5. Commit and push the changes
 
 ## 🚀 Deployment
