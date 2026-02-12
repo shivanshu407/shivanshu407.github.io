@@ -1,248 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivanshu Mishra | Portfolio</title>
-    <meta name="description" content="Shivanshu Mishra - Building at the intersection of hardware & software">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="images/profile.png">
-    <link rel="apple-touch-icon" href="images/profile.png">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+    <title>Shivanshu Mishra | Software Developer & Hardware Enthusiast</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/profile.png">
 </head>
+
 <body>
+
+    <!-- Fixed Background -->
+    <div class="fixed-bg"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">SM</a>
-            <button class="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#timeline" class="nav-link">Timeline</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
+        <div class="logo">Shivanshu Mishra</div>
+        <ul class="nav-links">
+            <li><a href="#" class="nav-link active" data-target="home">Home</a></li>
+            <li><a href="#" class="nav-link" data-target="about">About</a></li>
+        </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="hero-left">
-                <div class="vertical-name">
-                    <span>s</span>
-                    <span>h</span>
-                    <span>i</span>
-                    <span>v</span>
-                    <span>a</span>
-                    <span>n</span>
-                    <span>s</span>
-                    <span>h</span>
-                    <span>u</span>
-                    <span>.</span>
-                </div>
-            </div>
-            <div class="hero-right">
-                <img src="images/profile.png" alt="Shivanshu Mishra" class="profile-photo">
-                <div class="bio">
-                    <p>Hi, I'm <strong>Shivanshu</strong>. I build things at the intersection of hardware & software. Passionate about Verilog, FPGA, AI/ML & web development. Currently bridging the gap between silicon and code. 🖤</p>
-                </div>
+    <!-- Main Content Container -->
+    <main class="content-container">
+
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero-content">
+                <h1>Shivanshu Mishra</h1>
+                <p class="subtitle">Software Developer & Hardware Enthusiast</p>
                 <div class="social-links">
-                    <a href="https://github.com/shivanshu407" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/shivanshu-mishra-6a0496216" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="mailto:mshivanshu407@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                    <a href="https://github.com/shivanshu407" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/shivanshu-mishra-6a0496216/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="mailto:mshivanshu407@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About</h2>
-            <div class="about-content">
-                <p>I'm a developer passionate about creating innovative solutions that bridge hardware and software. My work spans from low-level FPGA designs to modern web applications, always seeking the perfect balance between performance and elegance.</p>
-                
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3>Hardware</h3>
-                        <div class="skill-tags">
-                            <span>FPGA</span>
-                            <span>Verilog</span>
-                            <span>VHDL</span>
-                            <span>IoT</span>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="about-overlay">
+                <div class="container">
+
+                    <div class="about-header">
+                        <h2>About Me</h2>
+                        <div class="underline"></div>
+                    </div>
+
+                    <div class="profile-section">
+                        <div class="profile-image">
+                            <!-- Placeholder if file is missing, but linking to images/profile.png -->
+                            <img src="images/profile.png" alt="Shivanshu Mishra"
+                                onerror="this.src='https://via.placeholder.com/150'">
+                        </div>
+                        <div class="profile-text">
+                            <h3>Software Developer & Hardware Enthusiast</h3>
+                            <p class="tagline">Bridging the gap between software intelligence and hardware acceleration.
+                            </p>
+
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="icon"><i class="fas fa-code"></i></span>
+                                    <span class="label">Focus:</span>
+                                    <span class="value">AI/ML, FPGA, IoT</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                                    <span class="label">Location:</span>
+                                    <span class="value">India</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                                    <span class="label">Email:</span>
+                                    <span class="value">mshivanshu407@gmail.com</span>
+                                </div>
+                            </div>
+
+                            <p class="bio">
+                                I'm a passionate software developer and hardware enthusiast with a strong interest in
+                                machine learning, digital logic design, and FPGA-based development. I enjoy working on
+                                Verilog, AI/ML, VLSI, and IoT while continuously learning and contributing to
+                                open-source projects.
+                            </p>
                         </div>
                     </div>
-                    <div class="skill-category">
-                        <h3>Software</h3>
-                        <div class="skill-tags">
-                            <span>Python</span>
-                            <span>React</span>
-                            <span>Next.js</span>
-                            <span>AI/ML</span>
-                            <span>Git</span>
-                            <span>Jupyter</span>
+
+                    <!-- Skills Section -->
+                    <div class="skills-section">
+                        <h3>Skills</h3>
+                        <div class="skills-grid">
+                            <!-- Programming Languages -->
+                            <div class="skill-card">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skill-card">
+                                <i class="fab fa-js"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="skill-card">
+                                <i class="fas fa-microchip"></i>
+                                <span>Verilog/VHDL</span>
+                            </div>
+                            <div class="skill-card">
+                                <i class="fab fa-rust"></i>
+                                <span>Rust</span>
+                            </div>
+                            <!-- Web Tech -->
+                            <div class="skill-card">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="skill-card">
+                                <i class="fab fa-node-js"></i>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="skill-card">
+                                <i class="fas fa-database"></i>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="skill-card">
+                                <i class="fas fa-server"></i>
+                                <span>Next.js</span>
+                            </div>
+                            <!-- Tools/Hardware -->
+                            <div class="skill-card">
+                                <i class="fas fa-memory"></i>
+                                <span>FPGA</span>
+                            </div>
+                            <div class="skill-card">
+                                <i class="fab fa-git-alt"></i>
+                                <span>Git</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Travel Blog v2</h3>
-                    <p>Scalable travel platform using Vercel & PostgreSQL.</p>
-                    <div class="project-tags">
-                        <span>PostgreSQL</span>
-                        <span>Vercel</span>
+                    <!-- Hobbies Section -->
+                    <div class="hobbies-section">
+                        <h3>Hobbies</h3>
+                        <div class="hobbies-grid">
+                            <div class="hobby-card">
+                                <div class="hobby-icon"><i class="fas fa-chess-knight"></i></div>
+                                <h4>Chess</h4>
+                                <p>Strategizing and outthinking the opponent.</p>
+                            </div>
+                            <div class="hobby-card">
+                                <div class="hobby-icon"><i class="fas fa-gamepad"></i></div>
+                                <h4>Gaming</h4>
+                                <p>Exploring virtual worlds and competitive play.</p>
+                            </div>
+                            <div class="hobby-card">
+                                <div class="hobby-icon"><i class="fas fa-book-open"></i></div>
+                                <h4>Reading</h4>
+                                <p>Gaining knowledge and getting lost in stories.</p>
+                            </div>
+                            <div class="hobby-card">
+                                <div class="hobby-icon"><i class="fas fa-feather-alt"></i></div>
+                                <h4>Poetry</h4>
+                                <p>Expressing thoughts and emotions through words.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Alzovision</h3>
-                    <p>AI-powered computer vision system for Alzheimer's detection.</p>
-                    <div class="project-tags">
-                        <span>AI/ML</span>
-                        <span>Computer Vision</span>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <h3>YT Sentiment AI</h3>
-                    <p>NLP-based comment classification system.</p>
-                    <div class="project-tags">
-                        <span>NLP</span>
-                        <span>Python</span>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <h3>FPGA Logic Design</h3>
-                    <p>Combinational & sequential circuits on Intel FPGA.</p>
-                    <div class="project-tags">
-                        <span>Verilog</span>
-                        <span>Intel FPGA</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Timeline Section -->
-    <section id="timeline" class="section">
-        <div class="container">
-            <h2 class="section-title">Timeline</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Education</h3>
-                        <p>Computer Science & Engineering fundamentals</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Travel Blog v2</h3>
-                        <p>Deployed scalable platform using Vercel & PostgreSQL</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>YT Sentiment AI</h3>
-                        <p>NLP-based sentiment analysis system</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Current</h3>
-                        <p>Optimizing Verilog designs & exploring FPGA accelerators</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Future</h3>
-                        <p>Deep integration of hardware and AI systems (VLSI & IoT)</p>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-content">
-                <p>Let's build something amazing together.</p>
-                <div class="contact-links">
-                    <a href="mailto:mshivanshu407@gmail.com" class="contact-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>mshivanshu407@gmail.com</span>
-                    </a>
-                    <a href="https://github.com/shivanshu407" target="_blank" class="contact-link">
-                        <i class="fab fa-github"></i>
-                        <span>github.com/shivanshu407</span>
-                    </a>
-                    <a href="https://linkedin.com/in/shivanshu-mishra-6a0496216" target="_blank" class="contact-link">
-                        <i class="fab fa-linkedin-in"></i>
-                        <span>linkedin.com/in/shivanshu-mishra</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Shivanshu Mishra. All rights reserved.</p>
-            <div class="footer-social">
-                <a href="https://github.com/shivanshu407" target="_blank" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/shivanshu-mishra-6a0496216" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>
