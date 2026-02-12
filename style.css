@@ -260,11 +260,11 @@ body {
 .details-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
-    /* Consistent spacing between items */
+    /* Keep wrap for mobile compliance, but spacing should prevent desktop wrap */
+    gap: 20px;
+    /* Reduced from 40px to 20px */
     margin-bottom: 30px;
     align-items: center;
-    /* Ensure vertical alignment */
 }
 
 .detail-item {
