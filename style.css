@@ -46,7 +46,14 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    /* No background for navbar similar to reference */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.navbar.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .logo {
@@ -72,6 +79,27 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Hero Nav (Home Only) */
+.hero-nav {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.hero-nav-link {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.hero-nav-link:hover,
+.hero-nav-link.active {
     color: var(--text-color);
     border-bottom: 2px solid var(--primary-color);
 }
