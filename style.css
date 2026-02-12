@@ -325,7 +325,8 @@ body {
     background: var(--card-hover);
 }
 
-.skill-card i {
+.skill-card i,
+.skill-card svg {
     font-size: 1.8rem;
     color: var(--primary-color);
     /* Icon color primarily accent */
