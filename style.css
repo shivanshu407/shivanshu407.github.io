@@ -391,55 +391,8 @@ body {
         padding: 20px;
     }
 
-    /* Vertical Name Layout for Mobile */
-    .hero-content {
-        display: flex;
-        flex-direction: row;
-        /* Name | Details */
-        align-items: center;
-        gap: 20px;
-    }
-
     .hero-content h1 {
-        font-size: 3.5rem;
-        /* Adjusted for vertical height */
-        writing-mode: vertical-lr;
-        text-orientation: upright;
-        letter-spacing: -0.1em;
-        /* Adjusted letter spacing */
-        display: flex;
-        flex-direction: column;
-        /* Columns for fname and lname in vertical mode */
-        gap: 15px;
-        /* Space between Shivanshu and Mishra columns */
-        margin: 0;
-        line-height: 1;
-        align-items: flex-end;
-        /* Align columns at the bottom */
-    }
-
-    .hero-details {
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .hero-content .subtitle {
-        writing-mode: horizontal-tb;
-        /* Reset to horizontal */
-        margin-bottom: 20px;
-    }
-
-    .hero-nav {
-        flex-direction: column;
-        /* Stack links vertically if needed, or keep row */
-        gap: 15px;
-        align-items: flex-start;
-    }
-
-    .social-links {
-        justify-content: flex-start;
+        font-size: 3rem;
     }
 
     .profile-section {
@@ -464,10 +417,7 @@ body {
     #home {
         padding-left: 5%;
         justify-content: center;
-        /* Vertically center */
-        align-items: center;
-        text-align: left;
-        /* Reset from previous center */
+        text-align: center;
     }
 
     .about-overlay {
