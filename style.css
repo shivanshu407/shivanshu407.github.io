@@ -405,12 +405,12 @@ body {
         /* Adjusted for vertical height */
         writing-mode: vertical-lr;
         text-orientation: upright;
-        letter-spacing: -5px;
-        /* Tighter vertical stacking */
+        letter-spacing: -0.1em;
+        /* Adjusted letter spacing */
         display: flex;
-        flex-direction: row;
-        /* Columns for fname and lname */
-        gap: 10px;
+        flex-direction: column;
+        /* Columns for fname and lname in vertical mode */
+        gap: 15px;
         /* Space between Shivanshu and Mishra columns */
         margin: 0;
         line-height: 1;
