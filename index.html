@@ -32,9 +32,9 @@
     <main class="content-container">
 
         <!-- Home Section -->
-        <section id="home" class="section active">
+        <section id="home" class="section active" aria-labelledby="home-heading">
             <div class="hero-content">
-                <h1>Shivanshu Mishra</h1>
+                <h1 id="home-heading">Shivanshu Mishra</h1>
                 <p class="subtitle">Software Developer & Hardware Enthusiast</p>
 
                 <div class="hero-nav">
@@ -43,107 +43,96 @@
                 </div>
 
                 <div class="social-links">
-                    <a href="https://github.com/shivanshu407" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/shivanshu-mishra-6a0496216/" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="mailto:mshivanshu407@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/shivanshu407" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/shivanshu-mishra-6a0496216/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="mailto:mshivanshu407@gmail.com" aria-label="Email Me"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="section">
+        <section id="about" class="section" aria-labelledby="about-heading">
             <div class="about-overlay">
                 <div class="container">
 
                     <div class="about-header">
-                        <h2>About Me</h2>
+                        <h2 id="about-heading">About Me</h2>
                         <div class="underline"></div>
                     </div>
 
                     <div class="profile-section">
                         <div class="profile-image">
                             <!-- Placeholder if file is missing, but linking to images/profile.png -->
-                            <img src="images/profile.png" alt="Shivanshu Mishra"
-                                onerror="this.src='https://via.placeholder.com/150'">
+                            <img src="images/profile.png" alt="Portrait of Shivanshu Mishra"
+                                onerror="this.src='https://via.placeholder.com/380'">
                         </div>
                         <div class="profile-text">
                             <h3>Software Developer & Hardware Enthusiast</h3>
                             <p class="tagline">Bridging the gap between software intelligence and hardware acceleration.
                             </p>
-
-                            <div class="details-grid">
-                                <div class="detail-item">
-                                    <span class="icon"><i class="fas fa-code"></i></span>
-                                    <span class="label">Focus:</span>
-                                    <span class="value">AI/ML, FPGA, IoT</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
-                                    <span class="label">Location:</span>
-                                    <span class="value">India</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="icon"><i class="fas fa-envelope"></i></span>
-                                    <span class="label">Email:</span>
-                                    <span class="value">mshivanshu407@gmail.com</span>
-                                </div>
-                            </div>
-
+                            
                             <p class="bio">
                                 I'm a passionate software developer and hardware enthusiast with a strong interest in
                                 machine learning, digital logic design, and FPGA-based development. I enjoy working on
                                 Verilog, AI/ML, VLSI, and IoT while continuously learning and contributing to
                                 open-source projects.
                             </p>
+
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="icon"><i class="fas fa-code" aria-hidden="true"></i></span>
+                                    <span class="label">Focus:</span>
+                                    <span class="value">AI/ML, FPGA, IoT</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+                                    <span class="label">Location:</span>
+                                    <span class="value">India</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                                    <span class="label">Email:</span>
+                                    <span class="value">mshivanshu407@gmail.com</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Skills Section -->
                     <div class="skills-section">
-                        <h3>Skills</h3>
-                        <div class="skills-grid">
-                            <!-- Programming Languages -->
-                            <div class="skill-card">
-                                <i class="fab fa-python"></i>
-                                <span>Python</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fab fa-js"></i>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fas fa-microchip"></i>
-                                <span>Verilog/VHDL</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fab fa-rust"></i>
-                                <span>Rust</span>
-                            </div>
-                            <!-- Web Tech -->
-                            <div class="skill-card">
-                                <i class="fab fa-react"></i>
-                                <span>React</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fab fa-node-js"></i>
-                                <span>Node.js</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fas fa-database"></i>
-                                <span>MongoDB</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fas fa-server"></i>
-                                <span>Next.js</span>
-                            </div>
-                            <div class="skill-card">
+                        <h3 class="section-title">Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">
+                                <i class="fab fa-python" aria-hidden="true"></i> Python
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fab fa-js" aria-hidden="true"></i> JavaScript
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fas fa-microchip" aria-hidden="true"></i> Verilog/VHDL
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fab fa-rust" aria-hidden="true"></i> Rust
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fab fa-react" aria-hidden="true"></i> React
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fab fa-node-js" aria-hidden="true"></i> Node.js
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fas fa-database" aria-hidden="true"></i> MongoDB
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fas fa-server" aria-hidden="true"></i> Next.js
+                            </span>
+                            <span class="skill-tag">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98.1 118"
-                                    width="1.8rem" height="1.8rem">
+                                    width="1em" height="1em" aria-hidden="true">
                                     <path fill="currentColor" d="M91.8,15.6C80.9-0.1,59.2-4.7,43.6,5.2L16.1,22.8C8.6,27.5,3.4,35.2,1.9,43.9c-1.3,7.3-0.2,14.8,3.3,21.3
                                     c-2.4,3.6-4,7.6-4.7,11.8c-1.6,8.9,0.5,18.1,5.7,25.4c11,15.7,32.6,20.3,48.2,10.4l27.5-17.5c7.5-4.7,12.7-12.4,14.2-21.1
                                     c1.3-7.3,0.2-14.8-3.3-21.3c2.4-3.6,4-7.6,4.7-11.8C99.2,32.1,97.1,22.9,91.8,15.6" />
-                                    <path fill="#FFFFFF"
+                                    <path fill="var(--color-bg-base)"
                                         d="M40.9,103.9c-8.9,2.3-18.2-1.2-23.4-8.7c-3.2-4.4-4.4-9.9-3.5-15.3c0.2-0.9,0.4-1.7,0.6-2.6l0.5-1.6l1.4,1
                                     c3.3,2.4,6.9,4.2,10.8,5.4l1,0.3l-0.1,1c-0.1,1.4,0.3,2.9,1.1,4.1c1.6,2.3,4.4,3.4,7.1,2.7c0.6-0.2,1.2-0.4,1.7-0.7L65.5,72
                                     c1.4-0.9,2.3-2.2,2.6-3.8c0.3-1.6-0.1-3.3-1-4.6c-1.6-2.3-4.4-3.3-7.1-2.6c-0.6,0.2-1.2,0.4-1.7,0.7l-10.5,6.7
@@ -153,42 +142,35 @@
                                     c-1.4,0.9-2.3,2.2-2.6,3.8s0.1,3.3,1,4.6c1.6,2.3,4.4,3.3,7.1,2.6c0.6-0.2,1.2-0.4,1.7-0.7l10.5-6.7c1.7-1.1,3.6-1.9,5.6-2.5
                                     c8.9-2.3,18.2,1.2,23.4,8.7c3.2,4.4,4.4,9.9,3.5,15.3c-0.9,5.2-4.1,9.9-8.6,12.7l-27.5,17.5C44.8,102.5,42.9,103.3,40.9,103.9" />
                                 </svg>
-                                <span>Svelte</span>
-                            </div>
-                            <!-- Tools/Hardware -->
-                            <div class="skill-card">
-                                <i class="fas fa-memory"></i>
-                                <span>FPGA</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fab fa-git-alt"></i>
-                                <span>Git</span>
-                            </div>
+                                Svelte
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fas fa-memory" aria-hidden="true"></i> FPGA
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fab fa-git-alt" aria-hidden="true"></i> Git
+                            </span>
                         </div>
                     </div>
 
-                    <!-- Hobbies Section -->
+                    <!-- Hobbies Section (Asymmetric Format) -->
                     <div class="hobbies-section">
-                        <h3>Hobbies</h3>
-                        <div class="hobbies-grid">
-                            <div class="hobby-card">
-                                <div class="hobby-icon"><i class="fas fa-chess-knight"></i></div>
-                                <h4>Chess</h4>
+                        <h3 class="section-title">Hobbies</h3>
+                        <div class="hobbies-layout">
+                            <div class="hobby-item">
+                                <h4><i class="fas fa-chess-knight" aria-hidden="true"></i> Chess</h4>
                                 <p>Strategizing and outthinking the opponent.</p>
                             </div>
-                            <div class="hobby-card">
-                                <div class="hobby-icon"><i class="fas fa-gamepad"></i></div>
-                                <h4>Gaming</h4>
+                            <div class="hobby-item">
+                                <h4><i class="fas fa-gamepad" aria-hidden="true"></i> Gaming</h4>
                                 <p>Exploring virtual worlds and competitive play.</p>
                             </div>
-                            <div class="hobby-card">
-                                <div class="hobby-icon"><i class="fas fa-book-open"></i></div>
-                                <h4>Reading</h4>
+                            <div class="hobby-item">
+                                <h4><i class="fas fa-book-open" aria-hidden="true"></i> Reading</h4>
                                 <p>Gaining knowledge and getting lost in stories.</p>
                             </div>
-                            <div class="hobby-card">
-                                <div class="hobby-icon"><i class="fas fa-feather-alt"></i></div>
-                                <h4>Poetry</h4>
+                            <div class="hobby-item">
+                                <h4><i class="fas fa-feather-alt" aria-hidden="true"></i> Poetry</h4>
                                 <p>Expressing thoughts and emotions through words.</p>
                             </div>
                         </div>
